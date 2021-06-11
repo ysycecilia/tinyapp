@@ -3,7 +3,7 @@ const cookieSession = require('cookie-session');
 const bcrypt = require("bcrypt");
 const getUserByEmail = require('./helpers');
 
-const PORT = 8090;
+const PORT = 8080;
 
 const app = express();
 
