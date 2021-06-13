@@ -17,6 +17,7 @@ const getUserByEmail = (users, email) => {
   }
 };
 
+//if id exists, return its email or set email as null
 const getEmailBySessionID = (users, id) => {
   return id ? users[id].email : null;
 };
@@ -24,22 +25,22 @@ const getEmailBySessionID = (users, id) => {
 const getShortURLByUserID = (urlDatabase, userID) => {
   let shortURLs = [];
 
-  Object.keys(urlDatabase).forEach(key => {
+  for (let key in urlDatabase) {
     if (userID === urlDatabase[key].userID) {
       shortURLs.push(key);
     }
-  });
+  }
   return shortURLs;
 };
 
 //check if userID matches with any id in Users. If so, returns its own URLs
 const urlsForUser = (urlDatabase, id) => {
   let userUrls = {};
-  Object.keys(urlDatabase).forEach(elem => {
-    if (urlDatabase[elem].userID === id) {
-      userUrls[elem] = (urlDatabase[elem]);
+  for (let key in urlDatabase) {
+    if (urlDatabase[key].userID === id) {
+      userUrls[key] = (urlDatabase[key]);
     }
-  });
+  }
   return userUrls;
 };
 module.exports = { generateRandomString, getUserByEmail, getEmailBySessionID, getShortURLByUserID, urlsForUser };

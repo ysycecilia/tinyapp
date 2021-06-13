@@ -1,6 +1,4 @@
 const { assert } = require('chai');
-const mocha = require('mocha');
-const {describe} = mocha.describe;
 const { getUserByEmail } = require('../helpers.js');
 
 const testUsers = {
@@ -20,7 +18,6 @@ describe('getUserByEmail', function() {
   it('should return a user with valid email', function() {
     const user = getUserByEmail(testUsers, "user@example.com");
     const expectedOutput = "userRandomID";
-    // Write your assert statement here
     assert.equal(user.id, expectedOutput);
   });
 

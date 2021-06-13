@@ -58,7 +58,7 @@ app.get("/urls", (req, res) => {
 
 //create a new URL record
 app.post("/urls", (req, res) => {
-  let newUrl = generateRandomString();
+  const newUrl = generateRandomString();
 
   if (!req.session.user_id) {
     return res.status(404).send();
@@ -137,7 +137,7 @@ app.get('/login',  (req, res) => {
 app.post("/login", (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
-  let user = getUserByEmail(users, email);
+  const user = getUserByEmail(users, email);
 
   if (!req.body.password || !req.body.email) {
     return res.status(403).send();
